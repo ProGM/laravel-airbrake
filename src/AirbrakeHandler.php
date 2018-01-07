@@ -28,8 +28,9 @@ class AirbrakeHandler
     {
         $airbrake = new Notifier([
             'projectId'  => config('airbrake.id'),
-                'projectKey' => config('airbrake.key'),
-            ]);
+            'projectKey' => config('airbrake.key'),
+            'host' => config('airbrake.host'),
+        ]);
 
         $airbrake->addFilter(function ($notice) {
             $this->setEnvName($notice);
